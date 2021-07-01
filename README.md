@@ -6,7 +6,7 @@
 
 ## Installation
 ```
-composer require revolution/sail-db-backup
+composer require revolution/sail-db-backup --dev
 ```
 
 ## Usage
