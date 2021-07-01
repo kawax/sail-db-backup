@@ -1,0 +1,36 @@
+{
+  "name": "revolution/sail-db-backup",
+  "description": "Backup Sail's Database",
+  "keywords": [
+    "laravel",
+    "sail",
+    "database",
+    "backup"
+  ],
+  "type": "library",
+  "license": "MIT",
+  "require": {
+    "php": "^7.4||^8.0",
+    "illuminate/console": "^8.0",
+    "illuminate/filesystem": "^8.0",
+    "illuminate/support": "^8.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Revolution\\Sail\\Backup\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "kawax",
+      "email": "kawaxbiz@gmail.com"
+    }
+  ],
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Revolution\\Sail\\Backup\\SailBackupServiceProvider"
+      ]
+    }
+  }
+}
