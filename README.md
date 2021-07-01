@@ -19,7 +19,7 @@ The SQL file will be saved in `/mysql_backup`.(Same as Homestead)
 
 If you want to change the `mysql_backup`
 ```
-sail art sail:backup:mysql--path=database/backup
+sail art sail:backup:mysql --path=database/backup
 ```
 
 ## LICENSE
