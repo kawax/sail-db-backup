@@ -22,5 +22,12 @@ If you want to change the `mysql_backup`
 sail art sail:backup:mysql --path=database/backup
 ```
 
+## Global .gitignore
+Recommend exclusion in global .gitignore
+
+```
+mysql_backup
+```
+
 ## LICENSE
 MIT
