@@ -65,7 +65,7 @@ class SailMySQLBackup extends Command
             "--result-file=$path/$database-$now.sql",
         ];
 
-        (new Process($cmd))->setTty(true)->mustRun();
+        (new Process($cmd))->mustRun();
 
         $this->info("Backing up mysql database $database-$now.sql");
 
