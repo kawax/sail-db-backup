@@ -9,12 +9,7 @@ use Revolution\Sail\Backup\Console\SailMySQLBackup;
 
 class SailBackupServiceProvider extends ServiceProvider
 {
-    public function register()
-    {
-        //
-    }
-
-    public function boot()
+    public function boot(): void
     {
         if ($this->app->runningInConsole() && $this->app->isLocal()) {
             $this->commands([

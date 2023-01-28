@@ -42,7 +42,7 @@ class SailMySQLBackup extends Command
      *
      * @return int
      */
-    public function handle()
+    public function handle(): int
     {
         $host = Config::get('database.connections.mysql.host');
         $port = Config::get('database.connections.mysql.port');
