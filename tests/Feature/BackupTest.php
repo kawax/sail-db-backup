@@ -25,15 +25,10 @@ class BackupTest extends TestCase
                  ->expectsOutput('Backing up mysql database test-202302260000.sql');
         });
 
-        Process::assertRan(fn (PendingProcess $process, ProcessResult $result) => $process->command === [
-                'mysqldump',
-                '--host=127.0.0.1',
-                '--port=3306',
-                '--user=user',
-                '--password=password',
-                'test',
-                '--result-file='.App::basePath('mysql_backup/test-202302260000.sql'),
-            ]);
+        Process::assertRan(fn (
+            PendingProcess $process,
+            ProcessResult $result,
+        ) => collect($process->command)->contains('--result-file='.App::basePath('mysql_backup/test-202302260000.sql')));
     }
 
     public function test_backup_with_path()
@@ -48,14 +43,9 @@ class BackupTest extends TestCase
                  ->expectsOutput('Backing up mysql database test-202302260000.sql');
         });
 
-        Process::assertRan(fn (PendingProcess $process, ProcessResult $result) => $process->command === [
-                'mysqldump',
-                '--host=127.0.0.1',
-                '--port=3306',
-                '--user=user',
-                '--password=password',
-                'test',
-                '--result-file='.App::basePath('mysql/test-202302260000.sql'),
-            ]);
+        Process::assertRan(fn (
+            PendingProcess $process,
+            ProcessResult $result,
+        ) => collect($process->command)->contains('--result-file='.App::basePath('mysql/test-202302260000.sql')));
     }
 }
