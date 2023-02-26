@@ -11,7 +11,7 @@ class SailBackupServiceProvider extends ServiceProvider
 {
     public function boot(): void
     {
-        if ($this->app->runningInConsole() && $this->app->isLocal()) {
+        if ($this->app->runningInConsole() && ! $this->app->isProduction()) {
             $this->commands([
                 SailMySQLBackup::class,
             ]);

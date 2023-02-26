@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace Revolution\Sail\Backup\Console;
 
 use Illuminate\Console\Command;
-use Illuminate\Filesystem\Filesystem;
 use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
-use Symfony\Component\Process\Process;
+use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Process;
 
 class SailMySQLBackup extends Command
 {
@@ -25,7 +25,7 @@ class SailMySQLBackup extends Command
      *
      * @var string
      */
-    protected $description = 'Backup Sail\'s MySQL';
+    protected $description = "Backup Sail's MySQL";
 
     /**
      * Create a new command instance.
@@ -53,7 +53,7 @@ class SailMySQLBackup extends Command
         $now = Carbon::now()->format('YmdHi');
         $path = App::basePath($this->option('path'));
 
-        (new Filesystem)->ensureDirectoryExists($path);
+        File::ensureDirectoryExists($path);
 
         $cmd = [
             'mysqldump',
@@ -65,7 +65,7 @@ class SailMySQLBackup extends Command
             "--result-file=$path/$database-$now.sql",
         ];
 
-        (new Process($cmd))->mustRun();
+        Process::run($cmd);
 
         $this->info("Backing up mysql database $database-$now.sql");
 
