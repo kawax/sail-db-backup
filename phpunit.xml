@@ -5,10 +5,12 @@
          colors="true"
          cacheDirectory=".phpunit.cache"
 >
-    <coverage>
+    <source>
         <include>
-            <directory suffix=".php">src/</directory>
+            <directory>src/</directory>
         </include>
+    </source>
+    <coverage>
         <report>
             <clover outputFile="build/logs/clover.xml"/>
         </report>
